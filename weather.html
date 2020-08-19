@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+  crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <title>Hello, world!</title>
+<link rel="stylesheet" href="weather.css">
+<script src="weather.js"></script>
+</head>
+<body> 
+    <div class="container-fluid">
+             <div class="row bg-info" style="height: 70px;">
+                   <div class="col sticky-top d-flex text-white font-weight-bold align-items-center" style="font-size: 30px;">Weather Detector</div>
+             </div>
+             <div class="row mt-2 justify-content-center align-items-center">
+                     <div class="col-md-4 mt-1 d-flex justify-content-end align-items-center"><input type="text" placeholder="Enter city name" class="form-control" id="textinput"></div>
+                     <div class="col-md-3  mt-1"><button class="btn btn-block btn-light btn-outline-success" id="botton" onclick="weather()">Get Weather</button></div>
+             </div>
+             <div class="rowv mt-5" id="parent">
+                     <div class="col-12">
+                          <div class="row justify-content-center align-items-center">
+                                <div class="col-5 text-white bg-secondary d-flex justify-content-center align-items-center font-weight-bold" style="height:80px; width: 50px;font-size:25px;" id="cityname">PUNE</div> 
+                                <div class="col-5 text-white bg-secondary d-flex justify-content-center align-items-center font-weight-bold ml-2" style="height:80px; width: 50px;font-size:25px;" id="country">COUNTRY</div> 
+                          </div>
+                          <div class="row mt-5 justify-content-center align-items-center">
+                               <div class="col-md-12">
+                                     <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-3 d-flex d-column justify-content-center align-items-center bg-success ml-2 mr-2 mt-2" style="height: 15rem;">
+                                            <!-- <div class="row  justify-content-center align-items-center">
+                                                <div class="col d-flex justify-content-start align-items-center"><img src="partly_cloudy.png" alt="" id="img"></div>
+                                                <div class="col text-white">Temprature</div>
+                                            </div> -->
+                                            <div class="row  justify-content-center align-items-center">
+                                                <!-- <div class="col d-flex justify-content-start align-items-center"><img src="fog.png" alt="" id="img"></div>
+                                                <div class="col text-white">Wind</div> -->
+                                                <div class="col">
+                                                         <div class="row">
+                                                              <div class="col d-flex justify-content-center align-items-center text-white font-weight-bold" style="font-size: 30px;">Temprature</div>
+                                                         </div>
+                                                         <div class="row ">
+                                                            <div class="col d-flex justify-content-start align-items-center"><img src="partly_cloudy.png" alt="" id="img"></div>
+                                                            <div class="col text-white d-flex justify-content-start align-items-center" id="temp" style="font-size:25px;"><span style="margin-right:2px;">Temprature </span> C</div>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center bg-success ml-2 mr-2 mt-2" style="height: 15rem;">
+                                            <!-- <div class="row  justify-content-center align-items-center">
+                                                <div class="col d-flex justify-content-start align-items-center"><img src="rain_s_cloudy.png" alt="" id="img"></div>
+                                                <div class="col text-white">Humidity</div>
+                                            </div> -->
+                                            <div class="row  justify-content-center align-items-center">
+                                                <div class="col">
+                                                         <div class="row">
+                                                              <div class="col d-flex justify-content-center align-items-center text-white font-weight-bold" style="font-size: 30px;">Weather</div>
+                                                         </div>
+                                                         <div class="row ">
+                                                            <div class="col d-flex justify-content-start align-items-center"><img src="rain_s_cloudy.png" alt="" id="img"></div>
+                                                            <div class="col text-white d-flex justify-content-start align-items-center" id="humidity" style="font-size:25px;">Weather</div>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center bg-success ml-2 mr-2 mt-2 mb-2" style="height: 15rem;">
+                                         
+                                            <div class="row  justify-content-center align-items-center">
+                                                <!-- <div class="col d-flex justify-content-start align-items-center"><img src="fog.png" alt="" id="img"></div>
+                                                <div class="col text-white">Wind</div> -->
+                                                <div class="col">
+                                                         <div class="row">
+                                                              <div class="col d-flex justify-content-center align-items-center text-white font-weight-bold" style="font-size: 30px;">Wind</div>
+                                                         </div>
+                                                         <div class="row ">
+                                                            <div class="col d-flex justify-content-start align-items-center"><img src="fog.png" alt="" id="img"></div>
+                                                            <div class="col text-white d-flex justify-content-start align-items-center" id="wind" style="font-size:25px;"><span style="margin-right:2px;">Wind </span> Km/h</div>
+                                                       </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                               </div>
+                          </div>
+                     </div>
+             </div>
+        <!-- <div class="row bg-dark">
+                <div class="sticky-bottom fixed-bottom bg-dark" style="height: 4rem;"></div>
+        </div> -->
+    </div>
+</body>
+</html>
